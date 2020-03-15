@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void sendMessage(View view) {
-        // Do something in response to button
+        EditText editNumber= findViewById(R.id.editNumber);
+        String txt = editNumber.getText().toString();
+
+        TextView tv = findViewById(R.id.server_response);
+        tv.setText(txt);
     }
 }
