@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Einzeabgabe_Marolt</string>
+    <string name="gib_deine_matrikelnummer_ein">Gib deine Matrikelnummer ein</string>
 </resources>
