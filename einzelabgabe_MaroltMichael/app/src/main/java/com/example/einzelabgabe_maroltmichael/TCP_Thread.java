@@ -1,5 +1,7 @@
 package com.example.einzelabgabe_maroltmichael;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -22,31 +24,20 @@ public class TCP_Thread extends Thread {
         return this.modifiedSentence;
     }
 
-
-
-
-
-
     @Override
     public void run() {
         try {
             clientSocket = new Socket(SERVER, SERVERPORT);
 
             try {
-                //clientSocket = new Socket("se2-isys.aau.at",53212);
-
                 DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-
                 BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
                 outToServer.writeBytes(message + "\n");
-
                 modifiedSentence = inFromServer.readLine();
 
-                System.out.println("FROM SERVER: " + modifiedSentence);
 
             } catch (Exception e) {
-                System.out.println(e.toString());
+                Log.e("error",e.toString());
                 throw e;
             }  finally {
                 if (clientSocket != null) {
