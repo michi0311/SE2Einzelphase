@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,11 +27,9 @@ public class MainActivity extends AppCompatActivity {
         try {
             TCP_Thread t = new TCP_Thread(txt);
             t.start();
-            try {
-                t.join();
-            } catch (InterruptedException e) {
-                throw e;
-            }
+
+            t.join();
+
             tv.setText(t.getModifiedSentence());
 
         } catch (Exception e) {
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = findViewById(R.id.server_response);
 
         if (txt.length() == 0) {
-            tv.setText("No Number given");
+            tv.setText("Bitte geben Sie  eine Zahl ein");
             return;
         }
 
@@ -79,5 +76,3 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 }
-
-
